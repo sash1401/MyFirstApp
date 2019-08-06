@@ -41,7 +41,11 @@ app.post('/submit-student-data', function (req, res) {
         res.status(200).send(body);
         res.send(body);
     })
-    res.send(name + ' Submitted Successfully!');
+    if(res.status==200)
+        res.sendFile(__dirname + '/result.html');
+    else
+        res.send("Error Occured.Please try again ")
+
 });
 
 
