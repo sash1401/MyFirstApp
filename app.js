@@ -29,23 +29,26 @@ app.get('/', function (req, res) {
 app.post('/submit-student-data', function (req, res) {
     var name = req.body.firstName + ' ' + req.body.lastName;
     var dept = req.body.dept;
-    console.log(req.body.firstName);
-    console.log(req.body.lastName);
-    console.log(dept);
-    request({
-        method: 'GET',
-        url: '',
-        headers: {}
-    },function(error,response,body){
-        console.log("Response body ",body)
-        res.status(200).send(body);
-        res.send(body);
+    console.log(JSON.stringify(req.body));
+    request(
+        {
+        method: 'POST',
+        url: 'https://dlvj8rzgk6.execute-api.us-east-1.amazonaws.com/dev/create',
+        headers:{},
+        body: JSON.stringify(req.body)
+    
+        },
+        function(error,response,body){
+        console.log("Response body ",body);
+        console.log("body.errorMessage",body.errorMessage)
+        if(body.errorMessage==null|| body.errorMessage=='' ){
+            res.sendFile(__dirname + '/result.html');
+            
+        }else{
+            res.send("Error Occured.Please try again ")
+            
+        }
     })
-    if(res.status==200)
-        res.sendFile(__dirname + '/result.html');
-    else
-        res.send("Error Occured.Please try again ")
-
 });
 
 
