@@ -2,7 +2,7 @@
     <body>
         <div>
             <h2>Student Enrollment</h2>
-            <form action="/submit-student-data" method="get">
+            <form action="/submit-student-data" method="post">
             <div>
                 <label>First Name</label>
                 <input type="text" name="firstName">
@@ -14,12 +14,18 @@
             </div>
             <br>
             <div>
-                <label>Student id is :</label>
-                <label> A12345</label>
+                <label>Department</label>
+                <select name="dept">
+                    <option value="cse">CSE</option>
+                    <option value="it">IT</option>
+                    <option value="mech">MECH</option>
+                    <option value="ece">ECE</option>
+                </select>
             </div>
             <br>
             <div>
-                <button type="submit">Submit</button>
+                <button type="submit">Register</button>
+                <button type="submit">Update</button>
             </div>
         </form>
         </div>

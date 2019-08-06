@@ -10,9 +10,9 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/submit-student-data', function (req, res) {
+/*app.post('/submit-student-data', function (req, res) {
     var name = req.body.firstName + ' ' + req.body.lastName;
-    console.log(name);
+    console.log(req);
     request({
         method: 'GET',
         url: '',
@@ -24,7 +24,27 @@ app.get('/submit-student-data', function (req, res) {
     })
     
     
+});*/
+
+app.post('/submit-student-data', function (req, res) {
+    var name = req.body.firstName + ' ' + req.body.lastName;
+    var dept = req.body.dept;
+    console.log(req.body.firstName);
+    console.log(req.body.lastName);
+    console.log(dept);
+    request({
+        method: 'GET',
+        url: '',
+        headers: {}
+    },function(error,response,body){
+        console.log("Response body ",body)
+        res.status(200).send(body);
+        res.send(body);
+    })
+    res.send(name + ' Submitted Successfully!');
 });
+
+
 
 var server = app.listen(8080, function () {
     console.log('Node server is running..');
