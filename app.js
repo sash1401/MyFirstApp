@@ -28,8 +28,6 @@ app.get('/', function (req, res) {
 
 app.post('/submit-student-data', function (req, res) {
     var name = req.body.firstName + ' ' + req.body.lastName;
-    var dept = req.body.dept;
-    console.log(JSON.stringify(req.body));
     request(
         {
         method: 'POST',
@@ -42,7 +40,7 @@ app.post('/submit-student-data', function (req, res) {
         console.log("Response body ",body);
         console.log("body.errorMessage",body.errorMessage)
         if(body.errorMessage==null|| body.errorMessage=='' ){
-            res.sendFile(__dirname + '/result.html');
+            res.send("The Student "+name+ " is registered successfully");
             
         }else{
             res.send("Error Occured.Please try again ")
