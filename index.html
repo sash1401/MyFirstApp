@@ -1,33 +1,56 @@
 <html>
-    <body>
-        <div>
-            <h2>Student Enrollment</h2>
-            <form action="/submit-student-data" method="post">
-            <div>
-                <label>First Name</label>
-                <input type="text" name="firstName">
-            </div>
-            <br>
-            <div>
-                <label>Last Name</label>
-                <input type="text" name="lastName">
-            </div>
-            <br>
-            <div>
-                <label>Department</label>
-                <select name="department">
-                    <option value="cse">CSE</option>
-                    <option value="it">IT</option>
-                    <option value="mech">MECH</option>
-                    <option value="ece">ECE</option>
-                </select>
-            </div>
-            <br>
-            <div>
-                <button type="submit">Register</button>
-                <button type="submit">Update</button>
-            </div>
-        </form>
-        </div>
-    </body>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Student Registration Form</title>
+
+</head>
+ 
+<body>
+<h3>STUDENT REGISTRATION FORM</h3>
+
+<form action="/submit-student-data" method="post">
+<table align="center" cellpadding = "10">
+ 
+<!----- First Name ---------------------------------------------------------->
+<tr>
+<td>FIRST NAME</td>
+<td><input type="text" name="firstName" maxlength="30"/>
+(max 30 characters a-z and A-Z)
+</td>
+</tr>
+ 
+<!----- Last Name ---------------------------------------------------------->
+<tr>
+<td>LAST NAME</td>
+<td><input type="text" name="lastName" maxlength="30"/>
+(max 30 characters a-z and  A-Z)
+</td>
+</tr>
+ 
+<!----- Date Of Birth -------------------------------------------------------->
+<tr>
+<td>DEPARTMENT</td>
+ 
+<td align="left">
+<select name="department" id="department">
+<option value="choose">Choose Dept</option>
+<option value="cse">CSE</option>
+<option value="it">IT</option>
+<option value="mech">MECH</option>
+<option value="ece">ECE</option>
+
+</select>
+
+<!----- Submit and Reset ------------------------------------------------->
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Register">
+<input type="submit" value="Update">
+</td>
+</tr>
+</table>
+ 
+</form>
+ 
+</body>
 </html>
