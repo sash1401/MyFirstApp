@@ -1,0 +1,1 @@
+This lambda is for saving student details to dynamo db.
