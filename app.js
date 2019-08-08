@@ -6,6 +6,7 @@ let request = require('request');
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
@@ -31,7 +32,7 @@ app.post('/submit-student-data', function (req, res) {
     request(
         {
         method: 'POST',
-        url: 'https://dlvj8rzgk6.execute-api.us-east-1.amazonaws.com/dev/create',
+        url: process.env.URL,
         headers:{},
         body: JSON.stringify(req.body)
     
